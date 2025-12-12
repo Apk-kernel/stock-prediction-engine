@@ -3,7 +3,6 @@
 A sophisticated robust machine learning stock prediction system featuring a modern React frontend and a FastAPI backend. This application uses an ensemble of algorithms (XGBoost, Random Forest, CatBoost) to predict stock price direction and provides reliability metrics based on historical performance.
 
 ![Stock Prediction Engine Preview](dashboard_preview.webp) 
-*(Note: Add a screenshot of the dashboard here)*
 
 ##  Features
 
