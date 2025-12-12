@@ -1,0 +1,20 @@
+# Vercel Ignore
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+.deploy_git_id
+.DS_Store
+.cache
+.vscode
+.idea
+node_modules/
+backend/catboost_info/
+catboost_info/
+*.mp4
+*.webp
