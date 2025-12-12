@@ -12,7 +12,7 @@ python-multipart
 pytest
 httpx
 # Ensemble methods
-# Ensemble methods (Commented out for Vercel size limit)
-# xgboost
-# lightgbm
-# catboost
+# Ensemble methods
+xgboost
+lightgbm
+catboost

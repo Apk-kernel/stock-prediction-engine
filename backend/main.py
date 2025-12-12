@@ -14,9 +14,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-def read_root():
-    return {"status": "ok", "message": "ML Stock Prediction API is running"}
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+import os
 
 @app.get("/api/predict/{ticker}")
 def predict(ticker: str):
@@ -25,3 +25,16 @@ def predict(ticker: str):
         return result
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+app.mount("/assets", StaticFiles(directory="frontend/dist/assets"), name="assets")
+
+@app.get("/{full_path:path}")
+async def serve_react_app(full_path: str):
+    if full_path.startswith("api"):
+        raise HTTPException(status_code=404, detail="Not Found")
+    
+    file_path = f"frontend/dist/{full_path}"
+    if os.path.exists(file_path) and os.path.isfile(file_path):
+        return FileResponse(file_path)
+    
+    return FileResponse("frontend/dist/index.html")

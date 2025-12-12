@@ -1,4 +1,7 @@
-# Stock Prediction Engine 
+# Stock Prediction Engine 📈
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?logo=github)](https://github.com/Apk-kernel/stock-prediction-engine)
+[![Vercel](https://img.shields.io/badge/Vercel-Deploy-black?logo=vercel)](https://ml-project-1.vercel.app)
 
 A sophisticated robust machine learning stock prediction system featuring a modern React frontend and a FastAPI backend. This application uses an ensemble of algorithms (XGBoost, Random Forest, CatBoost) to predict stock price direction and provides reliability metrics based on historical performance.
 
