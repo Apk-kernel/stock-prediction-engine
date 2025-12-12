@@ -1,11 +1,11 @@
-# Stock Prediction Engine 📈
+# Stock Prediction Engine 
 
 A sophisticated robust machine learning stock prediction system featuring a modern React frontend and a FastAPI backend. This application uses an ensemble of algorithms (XGBoost, Random Forest, CatBoost) to predict stock price direction and provides reliability metrics based on historical performance.
 
 ![Stock Prediction Engine Demo](https://i.imgur.com/place_holder.png) 
 *(Note: Add a screenshot of the dashboard here)*
 
-## 🚀 Features
+##  Features
 
 *   **Real-time Predictions**: Predicts whether a stock's price will go UP or DOWN.
 *   **Ensemble ML Model**: Combines XGBoost, LightGBM, CatBoost, and Random Forest for improved accuracy.
@@ -16,7 +16,7 @@ A sophisticated robust machine learning stock prediction system featuring a mode
 *   **Fast API**: High-performance backend using FastAPI.
 *   **Modern UI**: Sleek, responsive, and dark-themed UI built with React & Vite.
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Backend
 *   **Language**: Python 3.9+
@@ -31,7 +31,7 @@ A sophisticated robust machine learning stock prediction system featuring a mode
 *   **Charts**: Recharts
 *   **Icons**: Lucide React
 
-## 📦 Installation
+##  Installation
 
 ### Prerequisites
 *   Python 3.8+
@@ -77,17 +77,17 @@ npm run dev
 ```
 The application will be accessible at `http://localhost:5173` (or the port shown in your terminal).
 
-## 💡 Usage
+##  Usage
 
 1.  Enter a stock ticker (e.g., `AAPL`, `TSLA`, `NVDA`) in the search bar.
 2.  Hit **Enter** or click the prediction button.
 3.  View the **Prediction** (UP/DOWN), **Confidence**, and **Price History**.
 4.  Check the **Reliability Panel** to see how accurate the model has been for this specific stock recently.
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License.
