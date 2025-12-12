@@ -20,7 +20,7 @@ function App() {
     setData(null);
 
     try {
-      const response = await axios.get(`http://localhost:8000/api/predict/${symbol}`);
+      const response = await axios.get(`/api/predict/${symbol}`);
       setData(response.data);
     } catch (err: any) {
       console.error(err);
