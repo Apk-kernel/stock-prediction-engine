@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn
+yfinance
+matplotlib
+requests
+pydantic
+python-multipart
+# dev dependencies
+pytest
+httpx
+# Ensemble methods
+xgboost
+lightgbm
+catboost
