@@ -46,9 +46,23 @@ def get_sentiment(ticker: str) -> dict:
     count = 0
     
     for item in news_list:
+        # Try to get title from top level or content dict
         title = item.get('title', '')
-        link = item.get('link', '#')
+        if not title and 'content' in item and isinstance(item['content'], dict):
+            title = item['content'].get('title', '')
+            
+        # Try to get link
+        link = item.get('link', '')
+        if not link:
+            link = item.get('clickThroughUrl', '')
+            if not link and 'content' in item and isinstance(item['content'], dict):
+                link = item['content'].get('canonicalUrl', {}).get('url', '')
+                
+        # Try to get publisher
         publisher = item.get('publisher', 'Unknown')
+        if publisher == 'Unknown' and 'content' in item and isinstance(item['content'], dict):
+             # sometimes publisher is not easily available in content, ignore or accept Unknown
+             pass
         
         if not title:
             continue
