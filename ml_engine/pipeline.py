@@ -1,6 +1,7 @@
 from .data_loader import fetch_data
 from .features import add_technical_features
 from .model import StockPredictor
+from .sentiment import get_sentiment
 import pandas as pd
 
 def run_pipeline(ticker: str):
@@ -126,12 +127,35 @@ def run_pipeline(ticker: str):
     # Convert to dict
     history = recent_data.to_dict(orient='records')
     
+    # 6. Sentiment Analysis (New)
+    try:
+        sentiment_data = get_sentiment(ticker)
+        # Boost confidence if sentiment agrees with model
+        # If Model=UP and Sentiment=Positive -> Boost
+        # If Model=DOWN and Sentiment=Negative -> Boost
+        # Else -> Penalize slightly or keep same
+        
+        s_score = sentiment_data['score']
+        
+        if (prediction == 1 and s_score > 0.1) or (prediction == 0 and s_score < -0.1):
+            prob = (prob + 0.1) if prob < 0.9 else prob
+        elif (prediction == 1 and s_score < -0.1) or (prediction == 0 and s_score > 0.1):
+            prob = (prob - 0.1) if prob > 0.1 else prob
+            
+        # Re-evaluate logic after boost/penalty? 
+        # For now, just keeping the modifier on confidence for display.
+        
+    except Exception as e:
+        print(f"Sentiment Error: {e}")
+        sentiment_data = {"score": 0, "label": "Unknown", "headlines": []}
+
     return {
         "ticker": ticker.upper(),
         "prediction": "UP" if prediction == 1 else "DOWN",
         "confidence": prob, 
         "metrics": metrics,
         "reliability": reliability,
-        "backtest_data": backtest_data, # For interactive backtester
-        "history": history
+        "backtest_data": backtest_data,
+        "history": history,
+        "sentiment": sentiment_data
     }

@@ -8,6 +8,7 @@ matplotlib
 requests
 pydantic
 python-multipart
+vaderSentiment
 # dev dependencies
 pytest
 httpx

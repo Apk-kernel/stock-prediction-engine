@@ -4,6 +4,7 @@ import { StockChart } from './components/StockChart';
 import { Sidebar } from './components/Sidebar';
 import { ReliabilityPanel } from './components/ReliabilityPanel';
 import { BacktesterPanel } from './components/BacktesterPanel';
+import { SentimentPanel } from './components/SentimentPanel';
 import axios from 'axios';
 import { Search } from 'lucide-react';
 
@@ -159,6 +160,11 @@ function App() {
               {/* Backtester Panel */}
               {data.backtest_data && (
                 <BacktesterPanel data={data.backtest_data} />
+              )}
+
+              {/* Sentiment Panel */}
+              {data.sentiment && (
+                <SentimentPanel data={data.sentiment} />
               )}
             </div>
           )}

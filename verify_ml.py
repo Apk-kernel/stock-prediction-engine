@@ -17,6 +17,10 @@ try:
     if 'backtest_data' in result:
         bd = result['backtest_data']
         print(f"Backtest Data: {len(bd)} points")
+    if 'sentiment' in result:
+        s = result['sentiment']
+        print(f"Sentiment: {s['label']} ({s['score']:.4f})")
+        print(f"Headlines: {len(s['headlines'])}")
     print(f"Metric: {result['metrics']['accuracy']:.4f}")
     print(f"History points: {len(result['history'])}")
 except Exception as e:
